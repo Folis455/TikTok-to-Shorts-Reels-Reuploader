@@ -5,8 +5,21 @@ import shutil
 from datetime import datetime
 import tempfile
 from PIL import Image
-import cv2
-import numpy as np
+
+# Importaciones opcionales para manejo de errores en producción
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except ImportError:
+    CV2_AVAILABLE = False
+    print("Warning: OpenCV (cv2) not available. Some video processing features will be limited.")
+
+try:
+    import numpy as np
+    NUMPY_AVAILABLE = True
+except ImportError:
+    NUMPY_AVAILABLE = False
+    print("Warning: NumPy not available. Some video processing features will be limited.")
 
 class VideoProcessor:
     def __init__(self):

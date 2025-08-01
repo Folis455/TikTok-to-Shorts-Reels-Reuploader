@@ -13,4 +13,5 @@ ffmpeg-python
 pytube
 schedule
 psutil
-tqdm 
+tqdm
+opencv-python 
