@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok to Shorts/Reels Uploader 🚀</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <i class="fab fa-tiktok"></i>
+                    TikTok to Shorts/Reels
+                    <span class="subtitle">Uploader 2025</span>
+                </h1>
+                <p class="description">
+                    Resube tus TikToks a YouTube Shorts e Instagram Reels manteniendo la calidad original,
+                    sin marca de agua y con las nuevas duraciones extendidas.
+                </p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- URL Input Section -->
+            <section class="input-section">
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <i class="fas fa-link input-icon"></i>
+                        <input 
+                            type="url" 
+                            id="tiktok-url" 
+                            class="url-input" 
+                            placeholder="Pega aquí tu URL de TikTok..."
+                            autocomplete="off"
+                        >
+                        <button id="paste-btn" class="paste-btn" title="Pegar desde clipboard">
+                            <i class="fas fa-paste"></i>
+                        </button>
+                    </div>
+                    <div class="url-validation" id="url-validation"></div>
+                </div>
+            </section>
+
+            <!-- Platform Selection -->
+            <section class="platform-section">
+                <h3 class="section-title">
+                    <i class="fas fa-share-alt"></i>
+                    Selecciona las plataformas
+                </h3>
+                <div class="platform-grid">
+                    <label class="platform-card youtube" for="platform-youtube">
+                        <input type="checkbox" id="platform-youtube" value="youtube" checked>
+                        <div class="platform-content">
+                            <i class="fab fa-youtube"></i>
+                            <span class="platform-name">YouTube Shorts</span>
+                            <span class="platform-info">Hasta 3 min • 1080x1920</span>
+                        </div>
+                        <div class="checkmark">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </label>
+                    
+                    <label class="platform-card instagram" for="platform-instagram">
+                        <input type="checkbox" id="platform-instagram" value="instagram">
+                        <div class="platform-content">
+                            <i class="fab fa-instagram"></i>
+                            <span class="platform-name">Instagram Reels</span>
+                            <span class="platform-info">Hasta 3 min • 1080x1920</span>
+                        </div>
+                        <div class="checkmark">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Custom Title -->
+            <section class="title-section">
+                <h3 class="section-title">
+                    <i class="fas fa-heading"></i>
+                    Título personalizado para YouTube Shorts (opcional)
+                </h3>
+                <div class="title-container">
+                    <input 
+                        type="text"
+                        id="custom-title" 
+                        class="title-input"
+                        placeholder="Deja vacío para usar el título original del TikTok con sus hashtags ..."
+                        maxlength="100"
+                    />
+                    <div class="char-counter">
+                        <span id="title-char-count">0</span>/100
+                    </div>
+                </div>
+                <div class="title-tips">
+                    <p><i class="fas fa-lightbulb"></i> El título debe ser llamativo y descriptivo para YouTube Shorts</p>
+                </div>
+            </section>
+
+            <!-- Custom Description -->
+            <section class="description-section">
+                <h3 class="section-title">
+                    <i class="fas fa-edit"></i>
+                    Descripción personalizada (opcional)
+                </h3>
+                <div class="description-container">
+                    <textarea 
+                        id="custom-description" 
+                        class="description-input"
+                        placeholder="Deja vacío para usar la descripción original del TikTok o escribe tu propia descripción..."
+                        maxlength="2000"
+                    ></textarea>
+                    <div class="char-counter">
+                        <span id="char-count">0</span>/2000
+                    </div>
+                </div>
+                <div class="description-tips">
+                    <p><i class="fas fa-lightbulb"></i> Usa hashtags para optimizar la visibilidad en cada plataforma </p>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="action-section">
+                <button id="process-btn" class="process-btn" disabled>
+                    <i class="fas fa-rocket"></i>
+                    <span>Procesar y Subir</span>
+                </button>
+                
+                <div class="advanced-options">
+                    <button id="download-only-btn" class="secondary-btn">
+                        <i class="fas fa-download"></i>
+                        Solo descargar
+                    </button>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progress-section" style="display: none;">
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <h3 id="progress-title">Procesando...</h3>
+                        <div class="progress-percentage" id="progress-percentage">0%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-message" id="progress-message">
+                        Iniciando procesamiento...
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section" style="display: none;">
+                <div class="results-container">
+                    <div class="results-header">
+                        <h3><i class="fas fa-check-circle"></i> ¡Procesamiento completado!</h3>
+                    </div>
+                    
+                    <div class="video-preview" id="video-preview">
+                        <!-- Video preview will be populated here -->
+                    </div>
+                    
+                    <div class="upload-results" id="upload-results">
+                        <!-- Upload results will be populated here -->
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="new-process-btn" class="process-btn">
+                            <i class="fas fa-plus"></i>
+                            Procesar otro video
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <h3 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Características principales
+                </h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-hd-video"></i>
+                        <h4>Máxima calidad</h4>
+                        <p>Sin pérdida de calidad, formato MP4 optimizado</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-ban"></i>
+                        <h4>Sin marca de agua</h4>
+                        <p>Videos limpios, tal como los creaste</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Duración extendida</h4>
+                        <p>Hasta 3 minutos (2025) en ambas plataformas</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-hashtag"></i>
+                        <h4>Conserva Hashtags</h4>
+                        <p>Hashtags funcionales para aumentar visualizaciones</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-image"></i>
+                        <h4>Miniatura conservada</h4>
+                        <p>Mantiene la miniatura original del video</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Procesamiento rápido</h4>
+                        <p>Subida automática a múltiples plataformas</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 TikTok to Shorts/Reels Uploader. Hecho con ❤️ para creadores de contenido.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Ayuda</a>
+                    <a href="#" class="footer-link">API</a>
+                    <a href="#" class="footer-link">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Cargando...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html> 

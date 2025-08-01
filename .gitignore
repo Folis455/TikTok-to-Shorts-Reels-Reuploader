@@ -1,0 +1,353 @@
+# TikTok to Shorts/Reels Uploader 2025 - .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Project specific
+uploads/
+downloads/
+temp/
+logs/
+*.log
+
+# API credentials and sensitive files
+youtube_credentials.json
+youtube_token.pickle
+instagram_credentials.json
+*.key
+*.pem
+*.crt
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flv
+*.wmv
+*.webm
+*.m4v
+
+# Audio files
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+
+# Image files (except static assets)
+uploads/*.jpg
+uploads/*.jpeg
+uploads/*.png
+uploads/*.gif
+uploads/*.bmp
+uploads/*.tiff
+downloads/*.jpg
+downloads/*.jpeg
+downloads/*.png
+downloads/*.gif
+downloads/*.bmp
+downloads/*.tiff
+
+# Cache files
+.cache/
+__temp/
+.tmp/
+
+# Node.js (if using any frontend tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Package managers
+package-lock.json
+yarn.lock
+
+# Docker
+.dockerignore
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+test_results/
+
+# Deployment
+.deploy/
+deploy.sh
+docker-compose.override.yml
+
+# Local configuration overrides
+config_local.py
+settings_local.py
+
+# Redis dumps
+dump.rdb
+
+# SSL certificates
+ssl/
+*.csr
+*.p12
+*.pfx
+
+# Monitoring and analytics
+newrelic.ini
+.newrelic.yml
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Windows specific
+ehthumbs.db
+Thumbs.db
+
+# macOS specific
+.AppleDouble
+.LSOverride
+Icon
+
+# Linux specific
+*~
+
+# Editor temporary files
+.#*
+\#*#
+.*.swp
+.*.swo
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.sqlite
+*.db
+*.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Local data
+data/
+media/ 
